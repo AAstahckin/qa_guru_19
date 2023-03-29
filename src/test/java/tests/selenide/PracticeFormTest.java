@@ -14,7 +14,7 @@ public class PracticeFormTest extends TestBase {
 
 
     @Test
-    void successfulTest() {
+    void successfulFormTest() {
         open(urlPracticeForm);
         $(practiceFormHeader).shouldHave(text("Practice Form"));
 
