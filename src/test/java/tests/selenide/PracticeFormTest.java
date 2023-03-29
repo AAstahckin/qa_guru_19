@@ -11,8 +11,6 @@ import static tests.testData.IValuesPracticeForm.*;
 
 public class PracticeFormTest extends TestBase {
 
-
-
     @Test
     void successfulFormTest() {
         open(urlPracticeForm);
