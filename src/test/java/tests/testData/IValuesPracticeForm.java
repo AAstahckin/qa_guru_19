@@ -9,7 +9,7 @@ public interface IValuesPracticeForm {
             valuePhoneNumber = "9999999999",
             valueBirthMonth = "May",
             valueBirthYear = "2023",
-            valueBirthDay = "20",
+            valueBirthDay = "23",
             valueSubjects = "Hindi",
             valueHobbies = "Sports",
             valueAddress = "Penza",
