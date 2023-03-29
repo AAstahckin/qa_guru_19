@@ -6,14 +6,17 @@ import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
-import static tests.testData.ISelenideElements.*;
-import static tests.testData.IValuesPracticeForm.*;
+import static tests.testdata.ISelenideElements.*;
+import static tests.testdata.IValuesPracticeForm.*;
 
 public class PracticeFormTest extends TestBase {
 
     @Test
     void successfulFormTest() {
         open(urlPracticeForm);
+        executeJavaScript("$('#fixedban').remove()");
+        executeJavaScript("$('footer').remove()");
+
         $(practiceFormHeader).shouldHave(text("Practice Form"));
 
         $(practiceForm).shouldHave(text("Student Registration Form"));

@@ -1,4 +1,4 @@
-package tests.testData;
+package tests.testdata;
 
 public interface ISelenideElements {
 
