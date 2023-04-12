@@ -1,7 +1,7 @@
-package tests.pageobjects;
+package tests.page;
 
 import com.codeborne.selenide.SelenideElement;
-import tests.pageobjects.components.TextBoxOutputComponent;
+import tests.page.components.TextBoxOutputComponent;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.*;

@@ -1,8 +1,8 @@
-package tests.pageobjects;
+package tests.page;
 
 import com.codeborne.selenide.SelenideElement;
-import tests.pageobjects.components.CalendarComponent;
-import tests.pageobjects.components.ResultsModalComponent;
+import tests.page.components.CalendarComponent;
+import tests.page.components.ResultsModalComponent;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
