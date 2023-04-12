@@ -1,26 +1,25 @@
 package tests.selenide;
 
 import org.junit.jupiter.api.Test;
-
-import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.open;
+import static tests.data.IValuesPracticeForm.*;
 
 public class TextBoxTests extends TestBase {
 
     @Test
     void successfulFillFormTest() {
-        open("/text-box");
 
-        $("#userName").setValue("Mr Smith");
-        $("#userEmail").setValue("aa@aaa.com");
-        $("#currentAddress").setValue("Some street 1");
-        $("#permanentAddress").setValue("Another street 1");
-        $("#submit").click();
+        textBoxPage
+                .openTextBox()
+                .setUserName(valueFirstName)
+                .setEmail(valueEmail)
+                .setCurrentAddress(valueCurrentAddress)
+                .setPermanentAddress(valuePermanentAddress)
+                .clickButtonSubmit()
+                .checkResults(
+                        valueFirstName,
+                        valueEmail,
+                        valueCurrentAddress,
+                        valuePermanentAddress);
 
-        $("#output").shouldHave(text("Mr Smith"), text("aa@aaa.com"),
-                text("Some street 1"), text("Another street 1"));
-
-        $("#output #name").shouldHave(text("Mr Smith"));
     }
 }
