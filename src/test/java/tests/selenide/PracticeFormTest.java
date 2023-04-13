@@ -1,11 +1,14 @@
 package tests.selenide;
 
 import org.junit.jupiter.api.Test;
+import tests.page.PracticeFormPage;
 
 import static tests.data.IFieldsPracticeForm.*;
 import static tests.data.IValuesPracticeForm.*;
 
 public class PracticeFormTest extends TestBase {
+
+    PracticeFormPage practiceFormPage = new PracticeFormPage();
 
     @Test
     void successfulFormTest() {

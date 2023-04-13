@@ -1,9 +1,13 @@
 package tests.selenide;
 
 import org.junit.jupiter.api.Test;
+import tests.page.TextBoxPage;
+
 import static tests.data.IValuesPracticeForm.*;
 
 public class TextBoxTests extends TestBase {
+
+    TextBoxPage textBoxPage = new TextBoxPage();
 
     @Test
     void successfulFillFormTest() {

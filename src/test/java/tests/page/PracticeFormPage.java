@@ -10,6 +10,7 @@ import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 import static tests.data.IDemoqaUrls.AUTOMATION_PRACTICE_FORM;
 import static tests.data.IFieldsPracticeForm.*;
+import static tests.selenide.JavaScriptActions.removeBanners;
 
 public class PracticeFormPage {
 
@@ -47,8 +48,7 @@ public class PracticeFormPage {
 
     public PracticeFormPage openPracticeForm() {
         open(AUTOMATION_PRACTICE_FORM);
-        executeJavaScript("$('#fixedban').remove()");
-        executeJavaScript("$('footer').remove()");
+        removeBanners();
         practiceFormHeader.shouldHave(text(PRACTICE_FORM_HEADER));
         practiceForm.shouldHave(text(FORM_WRAPPER));
         return this;

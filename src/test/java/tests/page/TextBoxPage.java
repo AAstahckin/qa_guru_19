@@ -5,9 +5,9 @@ import tests.page.components.TextBoxOutputComponent;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.*;
-import static com.codeborne.selenide.Selenide.executeJavaScript;
 import static tests.data.IDemoqaUrls.TEXT_BOX;
 import static tests.data.IFieldsPracticeForm.*;
+import static tests.selenide.JavaScriptActions.removeBanners;
 
 public class TextBoxPage {
 
@@ -27,8 +27,7 @@ public class TextBoxPage {
 
     public TextBoxPage openTextBox() {
         open(TEXT_BOX);
-        executeJavaScript("$('#fixedban').remove()");
-        executeJavaScript("$('footer').remove()");
+        removeBanners();
         mainHeader.shouldHave(text(TEXT_BOX_HEADER));
         labelUserName.shouldHave(text(FIELD_FULL_NAME));
         labelEmail.shouldHave(text(FIELD_EMAIL));

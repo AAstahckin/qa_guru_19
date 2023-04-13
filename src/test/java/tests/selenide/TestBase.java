@@ -2,13 +2,8 @@ package tests.selenide;
 
 import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.BeforeAll;
-import tests.page.PracticeFormPage;
-import tests.page.TextBoxPage;
 
 public class TestBase {
-
-    PracticeFormPage practiceFormPage = new PracticeFormPage();
-    TextBoxPage textBoxPage = new TextBoxPage();
 
     @BeforeAll
     static void beforeAll() {
