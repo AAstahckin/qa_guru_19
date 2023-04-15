@@ -1,4 +1,4 @@
-package tests.data;
+package tests.data.fields;
 
 public interface IFieldsPracticeForm {
 

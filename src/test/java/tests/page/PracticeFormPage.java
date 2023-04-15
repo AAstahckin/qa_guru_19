@@ -8,9 +8,9 @@ import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
-import static tests.data.IDemoqaUrls.AUTOMATION_PRACTICE_FORM;
-import static tests.data.IFieldsPracticeForm.*;
-import static tests.selenide.JavaScriptActions.removeBanners;
+import static tests.variables.IDemoqaUrls.AUTOMATION_PRACTICE_FORM;
+import static tests.data.fields.IFieldsPracticeForm.*;
+import static tests.page.components.JavaScriptActions.removeBanners;
 
 public class PracticeFormPage {
 

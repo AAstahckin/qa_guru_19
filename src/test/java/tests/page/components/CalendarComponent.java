@@ -10,7 +10,7 @@ public class CalendarComponent {
             monthSelect = $(".react-datepicker__month-select"),
             yearSelect = $(".react-datepicker__year-select");
 
-    String daySelect = ".react-datepicker__day--%s";
+    String daySelect = ".react-datepicker__day--%s:not(.react-datepicker__day--outside-month)";
 
     public void setDate(String month, String year, String day) {
         monthSelect.selectOption(month);

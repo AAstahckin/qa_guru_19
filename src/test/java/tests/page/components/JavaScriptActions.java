@@ -1,4 +1,4 @@
-package tests.selenide;
+package tests.page.components;
 
 import static com.codeborne.selenide.Selenide.executeJavaScript;
 

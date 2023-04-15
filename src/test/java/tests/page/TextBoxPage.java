@@ -5,9 +5,9 @@ import tests.page.components.TextBoxOutputComponent;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.*;
-import static tests.data.IDemoqaUrls.TEXT_BOX;
-import static tests.data.IFieldsPracticeForm.*;
-import static tests.selenide.JavaScriptActions.removeBanners;
+import static tests.variables.IDemoqaUrls.TEXT_BOX;
+import static tests.data.fields.IFieldsPracticeForm.*;
+import static tests.page.components.JavaScriptActions.removeBanners;
 
 public class TextBoxPage {
 
@@ -36,7 +36,7 @@ public class TextBoxPage {
         return this;
     }
 
-    public TextBoxPage setUserName(String value) {
+    public TextBoxPage setFullName(String value) {
         userNameInput.setValue(value);
         return this;
     }

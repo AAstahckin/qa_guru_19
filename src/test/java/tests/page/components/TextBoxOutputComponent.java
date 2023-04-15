@@ -4,7 +4,7 @@ import com.codeborne.selenide.SelenideElement;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.$;
-import static tests.data.IFieldsPracticeForm.*;
+import static tests.data.fields.IFieldsPracticeForm.*;
 
 public class TextBoxOutputComponent {
 

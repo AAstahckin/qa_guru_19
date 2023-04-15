@@ -3,7 +3,7 @@ package tests.selenide;
 import org.junit.jupiter.api.Test;
 import tests.page.TextBoxPage;
 
-import static tests.data.IValuesPracticeForm.*;
+import static tests.data.values.ValuesTestBox.*;
 
 public class TextBoxTests extends TestBase {
 
@@ -14,16 +14,16 @@ public class TextBoxTests extends TestBase {
 
         textBoxPage
                 .openTextBox()
-                .setUserName(valueFirstName)
-                .setEmail(valueEmail)
-                .setCurrentAddress(valueCurrentAddress)
-                .setPermanentAddress(valuePermanentAddress)
+                .setFullName(fullNameValue)
+                .setEmail(EmailValue)
+                .setCurrentAddress(CurrentAddressValue)
+                .setPermanentAddress(PermanentAddressValue)
                 .clickButtonSubmit()
                 .checkResults(
-                        valueFirstName,
-                        valueEmail,
-                        valueCurrentAddress,
-                        valuePermanentAddress);
+                        fullNameValue,
+                        EmailValue,
+                        CurrentAddressValue,
+                        PermanentAddressValue);
 
     }
 }

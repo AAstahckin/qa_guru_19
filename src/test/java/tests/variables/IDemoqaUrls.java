@@ -1,4 +1,4 @@
-package tests.data;
+package tests.variables;
 
 public interface IDemoqaUrls {
 
