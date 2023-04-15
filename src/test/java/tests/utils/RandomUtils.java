@@ -1,7 +1,9 @@
 package tests.utils;
 
 import com.github.javafaker.Faker;
+import org.apache.commons.lang3.StringUtils;
 
+import java.time.Month;
 import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 
@@ -45,7 +47,7 @@ public class RandomUtils {
     }
 
     public static String getRandomMonth() {
-        return getRandomArrayString(MONTH_ARR);
+        return String.valueOf(Month.of(faker.random().nextInt(13)));
     }
 
     public static String getRandomSubjects() {

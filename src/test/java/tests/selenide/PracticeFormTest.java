@@ -4,11 +4,27 @@ import org.junit.jupiter.api.Test;
 import tests.page.PracticeFormPage;
 
 import static tests.data.fields.IFieldsPracticeForm.*;
-import static tests.data.values.ValuePracticeForm.*;
+import static tests.utils.RandomUtils.*;
 
 public class PracticeFormTest extends TestBase {
 
     PracticeFormPage practiceFormPage = new PracticeFormPage();
+
+    String
+            firstNameValue = getRandomFirstName(),
+            lastNameValue = getRandomLastName(),
+            emailValue = getRandomEmail(),
+            genderValue = getRandomGender(),
+            phoneNumberValue = getRandomPhoneNumber(),
+            birthMonthValue = getRandomMonth(),
+            birthYearValue = getRandomYear(),
+            birthDayValue = getRandomDay(),
+            subjectsValue = getRandomSubjects(),
+            hobbiesValue = getRandomHobbies(),
+            currentAddressValue = getRandomAddress(),
+            pictureValue = "wat.jpg",
+            stateValue = getRandomState(),
+            cityValue = getRandomCity(stateValue);
 
     @Test
     void successfulFormTest() {
@@ -16,30 +32,30 @@ public class PracticeFormTest extends TestBase {
         practiceFormPage
                 .openPracticeForm()
                 .checkFieldsNames()
-                .setFirstName(FirstNameValue)
-                .setLastName(LastNameValue)
-                .setUserEmail(EmailValue)
-                .setGender(GenderValue)
-                .setMobileNumber(PhoneNumberValue)
-                .setSubjects(SubjectsValue)
-                .setDateBirth(BirthMonthValue, BirthYearValue, BirthDayValue)
-                .setHobbies(HobbiesValue)
-                .setAddress(CurrentAddressValue)
-                .uploadFile(PictureValue)
-                .setState(StateValue)
-                .setCity(CityValue)
+                .setFirstName(firstNameValue)
+                .setLastName(lastNameValue)
+                .setUserEmail(emailValue)
+                .setGender(genderValue)
+                .setMobileNumber(phoneNumberValue)
+                .setSubjects(subjectsValue)
+                .setDateBirth(birthMonthValue, birthYearValue, birthDayValue)
+                .setHobbies(hobbiesValue)
+                .setAddress(currentAddressValue)
+                .uploadFile(pictureValue)
+                .setState(stateValue)
+                .setCity(cityValue)
                 .clickSubmit()
                 .checkModalDialog()
-                    .verifyResults(FIELD_STUDENT_NAME, FirstNameValue + " " + LastNameValue)
-                    .verifyResults(FIELD_STUDENT_EMAIL, EmailValue)
-                    .verifyResults(FIELD_GENDER, GenderValue)
-                    .verifyResults(FIELD_MOBILE, PhoneNumberValue)
-                    .verifyResults(FIELD_DATE_BIRTH, BirthDayValue + " " + BirthMonthValue + "," + BirthYearValue)
-                    .verifyResults(FIELD_SUBJECTS, SubjectsValue)
-                    .verifyResults(FIELD_HOBBIES, HobbiesValue)
-                    .verifyResults(FIELD_PICTURE, PictureValue)
-                    .verifyResults(FIELD_ADDRESS, CurrentAddressValue)
-                    .verifyResults(FIELD_STATE_CITY, StateValue + " " + CityValue)
+                    .verifyResults(FIELD_STUDENT_NAME, firstNameValue + " " + lastNameValue)
+                    .verifyResults(FIELD_STUDENT_EMAIL, emailValue)
+                    .verifyResults(FIELD_GENDER, genderValue)
+                    .verifyResults(FIELD_MOBILE, phoneNumberValue)
+                    .verifyResults(FIELD_DATE_BIRTH, birthDayValue + " " + birthMonthValue + "," + birthYearValue)
+                    .verifyResults(FIELD_SUBJECTS, subjectsValue)
+                    .verifyResults(FIELD_HOBBIES, hobbiesValue)
+                    .verifyResults(FIELD_PICTURE, pictureValue)
+                    .verifyResults(FIELD_ADDRESS, currentAddressValue)
+                    .verifyResults(FIELD_STATE_CITY, stateValue + " " + cityValue)
                     .clickCloseSubmit();
 
     }

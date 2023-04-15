@@ -1,6 +1,7 @@
 package tests.page.components;
 
 import com.codeborne.selenide.SelenideElement;
+import org.apache.commons.lang3.StringUtils;
 
 import static com.codeborne.selenide.Selenide.$;
 
@@ -13,7 +14,7 @@ public class CalendarComponent {
     String daySelect = ".react-datepicker__day--%s:not(.react-datepicker__day--outside-month)";
 
     public void setDate(String month, String year, String day) {
-        monthSelect.selectOption(month);
+        monthSelect.selectOption(StringUtils.capitalize(month.toLowerCase()));
         yearSelect.selectOption(year);
         if (day.length() == 2) {
             $(String.format(daySelect, "0" + day)).click();

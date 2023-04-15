@@ -3,11 +3,18 @@ package tests.selenide;
 import org.junit.jupiter.api.Test;
 import tests.page.TextBoxPage;
 
-import static tests.data.values.ValuesTestBox.*;
+import static tests.utils.RandomUtils.*;
+import static tests.utils.RandomUtils.getRandomPermanentAddress;
 
 public class TextBoxTests extends TestBase {
 
     TextBoxPage textBoxPage = new TextBoxPage();
+
+    String
+            fullNameValue = getRandomFullName(),
+            emailValue = getRandomEmail(),
+            currentAddressValue = getRandomAddress(),
+            permanentAddressValue = getRandomPermanentAddress();
 
     @Test
     void successfulFillFormTest() {
@@ -15,15 +22,15 @@ public class TextBoxTests extends TestBase {
         textBoxPage
                 .openTextBox()
                 .setFullName(fullNameValue)
-                .setEmail(EmailValue)
-                .setCurrentAddress(CurrentAddressValue)
-                .setPermanentAddress(PermanentAddressValue)
+                .setEmail(emailValue)
+                .setCurrentAddress(currentAddressValue)
+                .setPermanentAddress(permanentAddressValue)
                 .clickButtonSubmit()
                 .checkResults(
                         fullNameValue,
-                        EmailValue,
-                        CurrentAddressValue,
-                        PermanentAddressValue);
+                        emailValue,
+                        currentAddressValue,
+                        permanentAddressValue);
 
     }
 }
