@@ -8,10 +8,10 @@ import java.util.Calendar;
 import java.util.Date;
 
 import static tests.data.fields.IFieldsPracticeForm.*;
+import static tests.data.values.IReferenceValues.*;
 import static tests.utils.RandomUtils.*;
 
 public class PracticeFormTest extends TestBase {
-    Faker faker = new Faker();
 
     PracticeFormPage practiceFormPage = new PracticeFormPage();
 
@@ -20,21 +20,20 @@ public class PracticeFormTest extends TestBase {
             firstNameValue = getRandomFirstName(),
             lastNameValue = getRandomLastName(),
             emailValue = getRandomEmail(),
-            genderValue = getRandomGender(),
+            genderValue = getRandomItemArray(GENDER_ARR),
             phoneNumberValue = getRandomPhoneNumber(10),
             birthMonthValue = getMontFromDate(randomDateBetween),
             birthYearValue = getYearFromDate(randomDateBetween),
             birthDayValue = getDayFromDate(randomDateBetween),
-            subjectsValue = getRandomSubjects(),
-            hobbiesValue = getRandomHobbies(),
+            subjectsValue = getRandomItemArray(SUBJECTS_ARR),
+            hobbiesValue = getRandomItemArray(HOBBIES_ARR),
             currentAddressValue = getRandomAddress(),
             pictureValue = "wat.jpg",
-            stateValue = getRandomState(),
+            stateValue = getRandomItemArray(STATE_ARR),
             cityValue = getRandomCity(stateValue);
 
     @Test
-    void successfulFormTest() {
-        System.out.println(randomDateBetween);
+    void randomValuesPracticeFormTest() {
 
         practiceFormPage
                 .openPracticeForm()

@@ -6,24 +6,13 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.Month;
 import java.util.*;
-import java.util.concurrent.ThreadLocalRandom;
 
 import static tests.data.values.IReferenceValues.*;
 
 public class RandomUtils {
 
     static Faker faker = new Faker();
-    static Random random = new Random();
     static Calendar date = new GregorianCalendar();
-
-
-    public static String getRandomArrayString(String[] array) {
-        return array[random.nextInt(array.length)];
-    }
-
-    public static int getRandomInt(int min, int max) {
-        return ThreadLocalRandom.current().nextInt(min, max + 1);
-    }
 
     public static String getRandomFullName() {
         return faker.name().fullName();
@@ -49,35 +38,23 @@ public class RandomUtils {
         return faker.address().fullAddress();
     }
 
-    public static String getRandomSubjects() {
-        return getRandomArrayString(SUBJECTS_ARR);
-    }
-
-    public static String getRandomGender() {
-        return getRandomArrayString(GENDER_ARR);
-    }
-
-    public static String getRandomHobbies() {
-        return getRandomArrayString(HOBBIES_ARR);
-    }
-
-    public static String getRandomState() {
-        return getRandomArrayString(STATE_ARR);
+    public static String getRandomItemArray(String[] array) {
+        return faker.options().option(array);
     }
 
     public static String getRandomCity(String state) {
         switch (state) {
             case "NCR": {
-                return getRandomArrayString(CITY_NCR);
+                return faker.options().option(CITY_NCR);
             }
             case "Uttar Pradesh": {
-                return getRandomArrayString(CITY_UTTAR_PRADESH);
+                return faker.options().option(CITY_UTTAR_PRADESH);
             }
             case "Haryana": {
-                return getRandomArrayString(CITY_HARYANA);
+                return faker.options().option(CITY_HARYANA);
             }
             case "Rajasthan": {
-                return getRandomArrayString(CITY_RAJASTHAN);
+                return faker.options().option(CITY_RAJASTHAN);
             }
         }
         return null;
@@ -108,7 +85,7 @@ public class RandomUtils {
 
     public static String getMontFromDate(Date dateT) {
         date.setTime(dateT);
-        return String.valueOf(date.get(Calendar.MONTH));
+        return String.valueOf(Month.of(date.get(Calendar.MONTH)).plus(1));
     }
 
     public static String getYearFromDate(Date dateT) {
