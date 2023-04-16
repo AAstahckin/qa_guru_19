@@ -91,15 +91,14 @@ public class RandomUtils {
         return city + " " + street + " " + streetAddressNumber + " " + buildingNumber;
     }
 
-    public static Date getRandomDateBetween(String dateFrom, String dateTo) {
+    public static Date getRandomDateBetween(int yearFrom, int yearTo) {
         String formatDate = "dd.MM.yyyy";
         SimpleDateFormat format = new SimpleDateFormat();
         format.applyPattern(formatDate);
         try {
-            Date docDate1 = format.parse(dateFrom);
-            Date docDate2 = format.parse(dateTo);
-            date.setTime(faker.date().between(docDate1, docDate2));
-            System.out.println(date.getTime());
+            date.setTime(faker.date().between(
+                    format.parse("01.01." + yearFrom),
+                    format.parse("31.12." + yearTo)));
             return date.getTime();
 
         } catch (ParseException e) {

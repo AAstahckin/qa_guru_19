@@ -1,5 +1,6 @@
 package tests.selenide;
 
+import com.github.javafaker.Faker;
 import org.junit.jupiter.api.Test;
 import tests.page.PracticeFormPage;
 
@@ -10,10 +11,11 @@ import static tests.data.fields.IFieldsPracticeForm.*;
 import static tests.utils.RandomUtils.*;
 
 public class PracticeFormTest extends TestBase {
+    Faker faker = new Faker();
 
     PracticeFormPage practiceFormPage = new PracticeFormPage();
 
-    Date randomDateBetween = getRandomDateBetween("01.01.1900", "31.12.2100");
+    Date randomDateBetween = getRandomDateBetween(1900, 2100);
     String
             firstNameValue = getRandomFirstName(),
             lastNameValue = getRandomLastName(),
@@ -32,7 +34,7 @@ public class PracticeFormTest extends TestBase {
 
     @Test
     void successfulFormTest() {
-        System.out.println(getRandomPhoneNumber(10));
+        System.out.println(randomDateBetween);
 
         practiceFormPage
                 .openPracticeForm()
