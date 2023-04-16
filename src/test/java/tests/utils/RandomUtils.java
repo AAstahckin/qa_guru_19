@@ -1,10 +1,11 @@
 package tests.utils;
 
 import com.github.javafaker.Faker;
-import org.apache.commons.lang3.StringUtils;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.time.Month;
-import java.util.Random;
+import java.util.*;
 import java.util.concurrent.ThreadLocalRandom;
 
 import static tests.data.values.IReferenceValues.*;
@@ -13,8 +14,10 @@ public class RandomUtils {
 
     static Faker faker = new Faker();
     static Random random = new Random();
+    static Calendar date = new GregorianCalendar();
 
-    public static String getRandomArrayString(String[] array){
+
+    public static String getRandomArrayString(String[] array) {
         return array[random.nextInt(array.length)];
     }
 
@@ -38,16 +41,12 @@ public class RandomUtils {
         return faker.internet().emailAddress();
     }
 
-    public static String getRandomPhoneNumber() {
-        return faker.numerify("##########");
+    public static String getRandomPhoneNumber(int phoneNumberLength) {
+        return faker.number().digits(phoneNumberLength);
     }
 
     public static String getRandomAddress() {
         return faker.address().fullAddress();
-    }
-
-    public static String getRandomMonth() {
-        return String.valueOf(Month.of(faker.random().nextInt(13)));
     }
 
     public static String getRandomSubjects() {
@@ -92,12 +91,35 @@ public class RandomUtils {
         return city + " " + street + " " + streetAddressNumber + " " + buildingNumber;
     }
 
-    public static String getRandomYear() {
-        return String.valueOf(getRandomInt(1900, 2100));
+    public static Date getRandomDateBetween(String dateFrom, String dateTo) {
+        String formatDate = "dd.MM.yyyy";
+        SimpleDateFormat format = new SimpleDateFormat();
+        format.applyPattern(formatDate);
+        try {
+            Date docDate1 = format.parse(dateFrom);
+            Date docDate2 = format.parse(dateTo);
+            date.setTime(faker.date().between(docDate1, docDate2));
+            System.out.println(date.getTime());
+            return date.getTime();
+
+        } catch (ParseException e) {
+            throw new RuntimeException(e);
+        }
     }
 
-    public static String getRandomDay() {
-        return String.valueOf(getRandomInt(1, 28));
+    public static String getMontFromDate(Date dateT) {
+        date.setTime(dateT);
+        return String.valueOf(date.get(Calendar.MONTH));
+    }
+
+    public static String getYearFromDate(Date dateT) {
+        date.setTime(dateT);
+        return String.valueOf(date.get(Calendar.YEAR));
+    }
+
+    public static String getDayFromDate(Date dateT) {
+        date.setTime(dateT);
+        return String.valueOf(date.get(Calendar.DAY_OF_MONTH));
     }
 
 }
