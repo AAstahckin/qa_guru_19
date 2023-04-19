@@ -8,9 +8,9 @@ import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
-import static tests.variables.IDemoqaUrls.AUTOMATION_PRACTICE_FORM;
-import static tests.data.fields.IFieldsPracticeForm.*;
+import static tests.data.fields.FieldsPracticeForm.*;
 import static tests.page.components.JavaScriptActions.removeBanners;
+import static tests.variables.DemoqaUrls.AUTOMATION_PRACTICE_FORM;
 
 public class PracticeFormPage {
 
@@ -47,24 +47,24 @@ public class PracticeFormPage {
             exampleModalSizes = $("#example-modal-sizes-title-lg");
 
     public PracticeFormPage openPracticeForm() {
-        open(AUTOMATION_PRACTICE_FORM);
+        open(AUTOMATION_PRACTICE_FORM.getUrl());
         removeBanners();
-        practiceFormHeader.shouldHave(text(PRACTICE_FORM_HEADER));
-        practiceForm.shouldHave(text(FORM_WRAPPER));
+        practiceFormHeader.shouldHave(text(PRACTICE_FORM_HEADER.getName()));
+        practiceForm.shouldHave(text(FORM_WRAPPER.getName()));
         return this;
     }
 
     public PracticeFormPage checkFieldsNames() {
-        fieldName.shouldHave(text(FIELD_NAME));
-        fieldEmail.shouldHave(text(FIELD_EMAIL));
-        fieldGender.shouldHave(text(FIELD_GENDER));
-        fieldUserNumber.shouldHave(text(FIELD_MOBILE_WITH_DESCRIPTION));
-        fieldDateOfBirth.shouldHave(text(FIELD_DATE_BIRTH));
-        fieldSubjects.shouldHave(text(FIELD_SUBJECTS));
-        fieldHobbies.shouldHave(text(FIELD_HOBBIES));
-        fieldPicture.shouldHave(text(FIELD_PICTURE));
-        fieldAddress.shouldHave(text(FIELD_CURRENT_ADDRESS));
-        fieldStateCity.shouldHave(text(FIELD_STATE_CITY));
+        fieldName.shouldHave(text(FIELD_NAME.getName()));
+        fieldEmail.shouldHave(text(FIELD_EMAIL.getName()));
+        fieldGender.shouldHave(text(FIELD_GENDER.getName()));
+        fieldUserNumber.shouldHave(text(FIELD_MOBILE_WITH_DESCRIPTION.getName()));
+        fieldDateOfBirth.shouldHave(text(FIELD_DATE_BIRTH.getName()));
+        fieldSubjects.shouldHave(text(FIELD_SUBJECTS.getName()));
+        fieldHobbies.shouldHave(text(FIELD_HOBBIES.getName()));
+        fieldPicture.shouldHave(text(FIELD_PICTURE.getName()));
+        fieldAddress.shouldHave(text(FIELD_CURRENT_ADDRESS.getName()));
+        fieldStateCity.shouldHave(text(FIELD_STATE_CITY.getName()));
         return this;
     }
 
@@ -150,9 +150,9 @@ public class PracticeFormPage {
 
     public PracticeFormPage checkModalDialog() {
         modalDialog.shouldHave(visible);
-        exampleModalSizes.shouldHave(text(MODAL_SIZES_TITLE));
-        tableResponsive.shouldHave(text(COLUMN_NAME_LABEL));
-        tableResponsive.shouldHave(text(COLUMN_NAME_VALUES));
+        exampleModalSizes.shouldHave(text(MODAL_SIZES_TITLE.getName()));
+        tableResponsive.shouldHave(text(COLUMN_NAME_LABEL.getName()));
+        tableResponsive.shouldHave(text(COLUMN_NAME_VALUES.getName()));
         return this;
     }
 

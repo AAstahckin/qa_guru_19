@@ -5,9 +5,9 @@ import tests.page.components.TextBoxOutputComponent;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.*;
-import static tests.variables.IDemoqaUrls.TEXT_BOX;
-import static tests.data.fields.IFieldsPracticeForm.*;
+import static tests.data.fields.FieldsTextBox.*;
 import static tests.page.components.JavaScriptActions.removeBanners;
+import static tests.variables.DemoqaUrls.TEXT_BOX;
 
 public class TextBoxPage {
 
@@ -26,13 +26,13 @@ public class TextBoxPage {
             labelPermanentAddress = $("#permanentAddress-label");
 
     public TextBoxPage openTextBox() {
-        open(TEXT_BOX);
+        open(TEXT_BOX.getUrl());
         removeBanners();
-        mainHeader.shouldHave(text(TEXT_BOX_HEADER));
-        labelUserName.shouldHave(text(FIELD_FULL_NAME));
-        labelEmail.shouldHave(text(FIELD_EMAIL));
-        labelCurrentAddress.shouldHave(text(FIELD_CURRENT_ADDRESS));
-        labelPermanentAddress.shouldHave(text(FIELD_PERMANENT_ADDRESS));
+        mainHeader.shouldHave(text(TEXT_BOX_HEADER.getFieldName()));
+        labelUserName.shouldHave(text(FIELD_FULL_NAME.getFieldName()));
+        labelEmail.shouldHave(text(FIELD_EMAIL.getFieldName()));
+        labelCurrentAddress.shouldHave(text(FIELD_CURRENT_ADDRESS.getFieldName()));
+        labelPermanentAddress.shouldHave(text(FIELD_PERMANENT_ADDRESS.getFieldName()));
         return this;
     }
 

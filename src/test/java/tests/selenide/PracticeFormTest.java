@@ -1,39 +1,39 @@
 package tests.selenide;
 
-import com.github.javafaker.Faker;
 import org.junit.jupiter.api.Test;
 import tests.page.PracticeFormPage;
 
-import java.util.Calendar;
 import java.util.Date;
 
-import static tests.data.fields.IFieldsPracticeForm.*;
-import static tests.data.values.IReferenceValues.*;
+import static tests.data.fields.FieldsPracticeForm.*;
+import static tests.data.values.ArraysValuesPracticeForm.*;
 import static tests.utils.RandomUtils.*;
 
 public class PracticeFormTest extends TestBase {
 
     PracticeFormPage practiceFormPage = new PracticeFormPage();
 
-    Date randomDateBetween = getRandomDateBetween(1900, 2100);
-    String
-            firstNameValue = getRandomFirstName(),
-            lastNameValue = getRandomLastName(),
-            emailValue = getRandomEmail(),
-            genderValue = getRandomItemArray(GENDER_ARR),
-            phoneNumberValue = getRandomPhoneNumber(10),
-            birthMonthValue = getMontFromDate(randomDateBetween),
-            birthYearValue = getYearFromDate(randomDateBetween),
-            birthDayValue = getDayFromDate(randomDateBetween),
-            subjectsValue = getRandomItemArray(SUBJECTS_ARR),
-            hobbiesValue = getRandomItemArray(HOBBIES_ARR),
-            currentAddressValue = getRandomAddress(),
-            pictureValue = "wat.jpg",
-            stateValue = getRandomItemArray(STATE_ARR),
-            cityValue = getRandomCity(stateValue);
-
     @Test
     void randomValuesPracticeFormTest() {
+
+        Date randomDateBetween = getRandomDateBetween(1900, 2100);
+
+        String
+                firstNameValue = getRandomFirstName(),
+                lastNameValue = getRandomLastName(),
+                emailValue = getRandomEmail(),
+                genderValue = getRandomItemArray(GENDER_ARR.getArrayValues()),
+                phoneNumberValue = getRandomPhoneNumber(10),
+                birthMonthValue = getMontFromDate(randomDateBetween),
+                birthYearValue = getYearFromDate(randomDateBetween),
+                birthDayValue = getDayFromDate(randomDateBetween),
+                subjectsValue = getRandomItemArray(SUBJECTS_ARR.getArrayValues()),
+                hobbiesValue = getRandomItemArray(HOBBIES_ARR.getArrayValues()),
+                currentAddressValue = getRandomAddress(),
+                pictureValue = "wat.jpg",
+                stateValue = getRandomState(),
+                cityValue = getRandomCity(stateValue);
+
 
         practiceFormPage
                 .openPracticeForm()
@@ -52,17 +52,17 @@ public class PracticeFormTest extends TestBase {
                 .setCity(cityValue)
                 .clickSubmit()
                 .checkModalDialog()
-                .verifyResults(FIELD_STUDENT_NAME, firstNameValue + " " + lastNameValue)
-                .verifyResults(FIELD_STUDENT_EMAIL, emailValue)
-                .verifyResults(FIELD_GENDER, genderValue)
-                .verifyResults(FIELD_MOBILE, phoneNumberValue)
-                .verifyResults(FIELD_DATE_BIRTH, birthDayValue + " " + birthMonthValue + "," + birthYearValue)
-                .verifyResults(FIELD_SUBJECTS, subjectsValue)
-                .verifyResults(FIELD_HOBBIES, hobbiesValue)
-                .verifyResults(FIELD_PICTURE, pictureValue)
-                .verifyResults(FIELD_ADDRESS, currentAddressValue)
-                .verifyResults(FIELD_STATE_CITY, stateValue + " " + cityValue)
-                .clickCloseSubmit();
+                    .verifyResults(FIELD_STUDENT_NAME.getName(), firstNameValue + " " + lastNameValue)
+                    .verifyResults(FIELD_STUDENT_EMAIL.getName(), emailValue)
+                    .verifyResults(FIELD_GENDER.getName(), genderValue)
+                    .verifyResults(FIELD_MOBILE.getName(), phoneNumberValue)
+                    .verifyResults(FIELD_DATE_BIRTH.getName(), birthDayValue + " " + birthMonthValue + "," + birthYearValue)
+                    .verifyResults(FIELD_SUBJECTS.getName(), subjectsValue)
+                    .verifyResults(FIELD_HOBBIES.getName(), hobbiesValue)
+                    .verifyResults(FIELD_PICTURE.getName(), pictureValue)
+                    .verifyResults(FIELD_ADDRESS.getName(), currentAddressValue)
+                    .verifyResults(FIELD_STATE_CITY.getName(), stateValue + " " + cityValue)
+                    .clickCloseSubmit();
 
     }
 
