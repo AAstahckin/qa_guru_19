@@ -9,8 +9,8 @@ public enum StateAndCityPracticeForm {
     STATE_HARYANA("Haryana", new String[]{ "Karnal", "Panipat" }),
     STATE_RAJASTHAN("Rajasthan", new String[]{ "Jaipur", "Jaiselmer" });
 
-    private String state;
-    private String[] city;
+    private final String state;
+    private final String[] city;
 
     StateAndCityPracticeForm(String state, String[] city) {
         this.state = state;
