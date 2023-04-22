@@ -1,36 +1,29 @@
 package tests.selenide;
 
 import org.junit.jupiter.api.Test;
+import tests.data.viewmodel.TextBoxViewModel;
 import tests.page.TextBoxPage;
-
-import static tests.utils.RandomUtils.*;
-import static tests.utils.RandomUtils.getRandomPermanentAddress;
 
 public class TextBoxTests extends TestBase {
 
     TextBoxPage textBoxPage = new TextBoxPage();
-
-    String
-            fullNameValue = getRandomFullName(),
-            emailValue = getRandomEmail(),
-            currentAddressValue = getRandomAddress(),
-            permanentAddressValue = getRandomPermanentAddress();
+    TextBoxViewModel textBoxValue = new TextBoxViewModel();
 
     @Test
     void successfulFillFormTest() {
 
         textBoxPage
                 .openTextBox()
-                .setFullName(fullNameValue)
-                .setEmail(emailValue)
-                .setCurrentAddress(currentAddressValue)
-                .setPermanentAddress(permanentAddressValue)
+                .setFullName(textBoxValue.fullNameValue)
+                .setEmail(textBoxValue.emailValue)
+                .setCurrentAddress(textBoxValue.currentAddressValue)
+                .setPermanentAddress(textBoxValue.permanentAddressValue)
                 .clickButtonSubmit()
                 .checkResults(
-                        fullNameValue,
-                        emailValue,
-                        currentAddressValue,
-                        permanentAddressValue);
+                        textBoxValue.fullNameValue,
+                        textBoxValue.emailValue,
+                        textBoxValue.currentAddressValue,
+                        textBoxValue.permanentAddressValue);
 
     }
 }

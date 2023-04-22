@@ -15,7 +15,7 @@ public enum ArraysValuesPracticeForm {
         this.value = value;
     }
 
-    public String[] getArrayValues() {
+    public String[] getValues() {
         return value;
     }
 

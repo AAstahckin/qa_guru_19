@@ -10,8 +10,9 @@ public class ResultsModalComponent {
 
     SelenideElement tableResponsive = $(".table-responsive");
 
-    public void checkResults(String key, String value) {
+    public ResultsModalComponent checkResults(String key, String value) {
         tableResponsive.$(byText(key)).parent().shouldHave(text(value));
+        return this;
     }
 
 }

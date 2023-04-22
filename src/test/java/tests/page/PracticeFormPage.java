@@ -1,6 +1,7 @@
 package tests.page;
 
 import com.codeborne.selenide.SelenideElement;
+import tests.data.viewmodel.RegistrationFormViewModel;
 import tests.page.components.CalendarComponent;
 import tests.page.components.ResultsModalComponent;
 
@@ -138,8 +139,17 @@ public class PracticeFormPage {
         return this;
     }
 
-    public PracticeFormPage verifyResults(String key, String value) {
-        resultsModalComponent.checkResults(key, value);
+    public PracticeFormPage verifyResults(RegistrationFormViewModel value) {
+        resultsModalComponent
+                .checkResults(FIELD_STUDENT_NAME.getName(), value.firstNameValue + " " + value.lastNameValue)
+                .checkResults(FIELD_STUDENT_EMAIL.getName(), value.emailValue)
+                .checkResults(FIELD_GENDER.getName(), value.genderValue)
+                .checkResults(FIELD_MOBILE.getName(), value.phoneNumberValue)
+                .checkResults(FIELD_DATE_BIRTH.getName(), value.birthDayValue + " " + value.birthMonthValue + "," + value.birthYearValue)
+                .checkResults(FIELD_SUBJECTS.getName(), value.subjectsValue)
+                .checkResults(FIELD_PICTURE.getName(), value.pictureValue)
+                .checkResults(FIELD_ADDRESS.getName(), value.currentAddressValue)
+                .checkResults(FIELD_STATE_CITY.getName(), value.stateValue + " " + value.cityValue);
         return this;
     }
 
