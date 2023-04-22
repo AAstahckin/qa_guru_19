@@ -25,7 +25,7 @@ public enum StateAndCityPracticeForm {
         return city;
     }
 
-    public static HashMap<String, String[]> statesAndCities = new HashMap<>();
+    public static final HashMap<String, String[]> statesAndCities = new HashMap<>();
 
     static {
         for (StateAndCityPracticeForm state : StateAndCityPracticeForm.values()) {
