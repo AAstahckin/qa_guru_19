@@ -1,5 +1,7 @@
 package tests.data.values;
 
+import java.util.HashMap;
+
 public enum StateAndCityPracticeForm {
 
     STATE_NCR("NCR", new String[]{ "Delhi", "Gurgaon", "Noida" }),
@@ -21,6 +23,14 @@ public enum StateAndCityPracticeForm {
 
     public String[] getCity() {
         return city;
+    }
+
+    public static HashMap<String, String[]> statesAndCities = new HashMap<>();
+
+    static {
+        for (StateAndCityPracticeForm state : StateAndCityPracticeForm.values()) {
+            statesAndCities.put(state.getState(), state.getCity());
+        }
     }
 
 }

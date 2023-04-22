@@ -1,30 +1,22 @@
 package tests.utils;
 
 import com.github.javafaker.Faker;
-import tests.data.values.StateAndCityPracticeForm;
 
 import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.*;
+
+import static tests.data.values.StateAndCityPracticeForm.statesAndCities;
 
 public class RandomUtils {
 
     static Faker faker = new Faker();
     static List<File> listFiles = Arrays.asList(new File("src/test/resources").listFiles());
 
-
-    public static HashMap<String, String[]> statesAndCities = new HashMap<>();
-
-    static {
-        for (StateAndCityPracticeForm state : StateAndCityPracticeForm.values()) {
-            statesAndCities.put(state.getState(), state.getCity());
-        }
-    }
-
     public static String getRandomState() {
         return faker.options().option(statesAndCities.keySet().toArray()).toString();
     }
-//
+
     public static String getRandomCity(String state) {
         return faker.options().option(statesAndCities.get(state));
     }
