@@ -7,11 +7,12 @@ import java.text.SimpleDateFormat;
 import java.util.*;
 
 import static tests.data.values.StateAndCityPracticeForm.statesAndCities;
+import static tests.variables.CommonVariables.TEST_FILES;
 
 public class RandomUtils {
 
     static Faker faker = new Faker();
-    static List<File> listFiles = Arrays.asList(new File("src/test/resources").listFiles());
+    static List<File> listFiles = Arrays.asList(new File(TEST_FILES.getName()).listFiles());
 
     public static String getRandomState() {
         return faker.options().option(statesAndCities.keySet().toArray()).toString();

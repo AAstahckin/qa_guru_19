@@ -5,12 +5,15 @@ import tests.data.viewmodel.RegistrationFormViewModel;
 import tests.page.components.CalendarComponent;
 import tests.page.components.ResultsModalComponent;
 
+import java.io.File;
+
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 import static tests.data.fields.FieldsPracticeForm.*;
 import static tests.page.components.JavaScriptActions.removeBanners;
+import static tests.variables.CommonVariables.TEST_FILES;
 import static tests.variables.DemoqaUrls.AUTOMATION_PRACTICE_FORM;
 
 public class PracticeFormPage {
@@ -118,7 +121,7 @@ public class PracticeFormPage {
     }
 
     public PracticeFormPage uploadFile(String value) {
-        uploadPicture.uploadFromClasspath(value);
+        uploadPicture.uploadFile(new File(TEST_FILES.getName() + value));
         return this;
     }
 
