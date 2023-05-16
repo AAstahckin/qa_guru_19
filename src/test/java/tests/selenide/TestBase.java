@@ -13,6 +13,7 @@ public class TestBase {
         Configuration.baseUrl = BAE_URL.getUrl();
         Configuration.browserSize = "1920x1080";
         Configuration.pageLoadStrategy = "eager";
+        Configuration.headless = true;
 
     }
 }
