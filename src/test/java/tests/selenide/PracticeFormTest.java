@@ -1,9 +1,11 @@
 package tests.selenide;
 
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import tests.data.viewmodel.RegistrationFormViewModel;
 import tests.page.PracticeFormPage;
 
+@Tag("simple")
 public class PracticeFormTest extends TestBase {
 
     PracticeFormPage practiceFormPage = new PracticeFormPage();
