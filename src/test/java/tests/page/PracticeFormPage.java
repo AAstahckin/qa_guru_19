@@ -1,6 +1,7 @@
 package tests.page;
 
 import com.codeborne.selenide.SelenideElement;
+import io.qameta.allure.Step;
 import tests.data.viewmodel.RegistrationFormViewModel;
 import tests.page.components.CalendarComponent;
 import tests.page.components.ResultsModalComponent;
@@ -50,6 +51,7 @@ public class PracticeFormPage {
             modalDialog = $(".modal-dialog"),
             exampleModalSizes = $("#example-modal-sizes-title-lg");
 
+    @Step("Открываем страницу automation-practice-form")
     public PracticeFormPage openPracticeForm() {
         open(AUTOMATION_PRACTICE_FORM.getUrl());
         removeBanners();
@@ -58,6 +60,7 @@ public class PracticeFormPage {
         return this;
     }
 
+    @Step("Проверяем что все поля присутствуют")
     public PracticeFormPage checkFieldsNames() {
         fieldName.shouldHave(text(FIELD_NAME.getName()));
         fieldEmail.shouldHave(text(FIELD_EMAIL.getName()));
@@ -72,76 +75,90 @@ public class PracticeFormPage {
         return this;
     }
 
+    @Step("Вводим в поле FirstName значение: {value}")
     public PracticeFormPage setFirstName(String value) {
         firstNameInput.setValue(value);
         return this;
     }
 
+    @Step("Вводим в поле LastName значение: {value}")
     public PracticeFormPage setLastName(String value) {
         lastNameInput.setValue(value);
         return this;
     }
 
 
+    @Step("Вводим в поле UserEmail значение: {value}")
     public PracticeFormPage setUserEmail(String value) {
         userEmailInput.setValue(value);
         return this;
     }
 
+    @Step("В разделе Gender выбираем : {value}")
     public PracticeFormPage setGender(String value) {
         fieldGender.$(byText(value)).click();
         return this;
     }
 
+    @Step("Вводим в поле Mobile значение: {value}")
     public PracticeFormPage setMobileNumber(String value) {
         userNumberInput.setValue(value);
         return this;
     }
 
+    @Step("Вводим в поле Subjects значение: {value}")
     public PracticeFormPage setSubjects(String value) {
         subjectsInput.sendKeys(value);
         subjectsInput.pressEnter();
         return this;
     }
 
+    @Step("В поле Date of Birth выбираем дату : {month}:{year}:{day}")
     public PracticeFormPage setDateBirth(String month, String year, String day) {
         dateBirthInput.click();
         calendarComponent.setDate(month, year, day);
         return this;
     }
 
+    @Step("В разделе Hobbies выбираем: {value}")
     public PracticeFormPage setHobbies(String value) {
         fieldHobbies.$(byText(value)).click();
         return this;
     }
 
+    @Step("В поле Current Address вводим адрес: {value}")
     public PracticeFormPage setAddress(String value) {
         currentAddressInput.setValue(value).click();
         return this;
     }
 
+    @Step("Загружаем файл на страницу: {value}")
     public PracticeFormPage uploadFile(String value) {
         uploadPicture.uploadFile(new File(TEST_FILES.getName() + value));
         return this;
     }
 
+    @Step("Выбираем из списка в поле State значение: {value}")
     public PracticeFormPage setState(String value) {
         userStateInput.click();
         $(byText(value)).click();
         return this;
     }
 
+    @Step("Выбираем из списка в поле City значение: {value}")
     public PracticeFormPage setCity(String value) {
         userCityInput.click();
         $(byText(value)).click();
         return this;
     }
 
+    @Step("Нажимаем на кнопку Submit")
     public PracticeFormPage clickSubmit() {
         submit.click();
         return this;
     }
 
+    @Step("Проверяем что все параметры заполнены верно")
     public PracticeFormPage verifyResults(RegistrationFormViewModel value) {
         resultsModalComponent
                 .checkResults(FIELD_STUDENT_NAME.getName(), value.firstNameValue + " " + value.lastNameValue)
@@ -156,11 +173,13 @@ public class PracticeFormPage {
         return this;
     }
 
+    @Step("Нажимаем на кнопку Close")
     public PracticeFormPage clickCloseSubmit() {
         closeSubmit.shouldHave(visible).click();
         return this;
     }
 
+    @Step("Проверяем отображение модального окна")
     public PracticeFormPage checkModalDialog() {
         modalDialog.shouldHave(visible);
         exampleModalSizes.shouldHave(text(MODAL_SIZES_TITLE.getName()));

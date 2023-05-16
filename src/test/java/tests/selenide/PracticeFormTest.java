@@ -1,5 +1,6 @@
 package tests.selenide;
 
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import tests.data.viewmodel.RegistrationFormViewModel;
@@ -12,6 +13,7 @@ public class PracticeFormTest extends TestBase {
     RegistrationFormViewModel student = new RegistrationFormViewModel();
 
     @Test
+    @DisplayName("Успешное заполнение формы")
     void randomValuesPracticeFormTest() {
 
         practiceFormPage
