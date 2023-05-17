@@ -1,5 +1,6 @@
 package tests.selenide;
 
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import tests.data.viewmodel.TextBoxViewModel;
@@ -13,6 +14,7 @@ public class TextBoxTests extends TestBase {
 
     @Tag("regression")
     @Test
+    @DisplayName("Успешное заполнение формы text-Box")
     void successfulFillFormTest() {
 
         textBoxPage
@@ -33,6 +35,7 @@ public class TextBoxTests extends TestBase {
 
     @Tag("smoke")
     @Test
+    @DisplayName("Проверка параметров")
     void checkSetValueFromFields() {
         textBoxPage
                 .openTextBox()
@@ -45,6 +48,7 @@ public class TextBoxTests extends TestBase {
 
     @Tag("smoke")
     @Test
+    @DisplayName("Проверка отображения полей и формы")
     void checkFieldsTestBox() {
         textBoxPage.openTextBox().checkFieldsTestBox();
     }
