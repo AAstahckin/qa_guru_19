@@ -35,7 +35,7 @@ public class TextBoxTests extends TestBase {
 
     @Tag("smoke")
     @Test
-    @DisplayName("Проверка параметров")
+    @DisplayName("Проверка параметров text-Box")
     void checkSetValueFromFields() {
         textBoxPage
                 .openTextBox()
@@ -48,7 +48,7 @@ public class TextBoxTests extends TestBase {
 
     @Tag("smoke")
     @Test
-    @DisplayName("Проверка отображения полей и формы")
+    @DisplayName("Проверка отображения полей и формы text-Box")
     void checkFieldsTestBox() {
         textBoxPage.openTextBox().checkFieldsTestBox();
     }

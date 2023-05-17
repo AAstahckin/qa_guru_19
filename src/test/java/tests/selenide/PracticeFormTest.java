@@ -39,14 +39,14 @@ public class PracticeFormTest extends TestBase {
 
     @Tag("smoke")
     @Test
-    @DisplayName("Проверка отображения полей и формы")
+    @DisplayName("Проверка отображения полей и формы automation-practice-form")
     void checkFieldsPracticeForm() {
         practiceFormPage.openPracticeForm().checkFieldsNames();
     }
 
     @Tag("smoke")
     @Test
-    @DisplayName("Проверка параметров")
+    @DisplayName("Проверка параметров automation-practice-form")
     void checkParams() {
         practiceFormPage
                 .openPracticeForm()
