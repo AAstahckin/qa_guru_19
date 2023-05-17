@@ -1,6 +1,7 @@
 package tests.page.components;
 
 import com.codeborne.selenide.SelenideElement;
+import io.qameta.allure.Allure;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.$;
@@ -15,6 +16,7 @@ public class TextBoxOutputComponent {
             outputPermanentAddress = $("#output #permanentAddress");
 
     public void outputResult(String valueName, String email, String currentAddress, String permanentAddress) {
+        Allure.step("Параметры: " + valueName + " " + email + " " + currentAddress + " " + permanentAddress + " заполнены корректно");
         outputName.shouldHave(text(FIELD_NAME.getFieldName() + ":" + valueName));
         outputEmail.shouldHave(text(FIELD_EMAIL.getFieldName() + ":"  + email));
         outputCurrentAddress.shouldHave(text(FIELD_CURRENT_ADDRESS.getFieldName() + " :"  + currentAddress));

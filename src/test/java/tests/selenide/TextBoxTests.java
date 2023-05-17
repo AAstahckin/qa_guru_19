@@ -5,17 +5,19 @@ import org.junit.jupiter.api.Test;
 import tests.data.viewmodel.TextBoxViewModel;
 import tests.page.TextBoxPage;
 
-@Tag("simple")
+
 public class TextBoxTests extends TestBase {
 
     TextBoxPage textBoxPage = new TextBoxPage();
     TextBoxViewModel textBoxValue = new TextBoxViewModel();
 
+    @Tag("regression")
     @Test
     void successfulFillFormTest() {
 
         textBoxPage
                 .openTextBox()
+                .checkFieldsTestBox()
                 .setFullName(textBoxValue.fullNameValue)
                 .setEmail(textBoxValue.emailValue)
                 .setCurrentAddress(textBoxValue.currentAddressValue)
@@ -28,4 +30,24 @@ public class TextBoxTests extends TestBase {
                         textBoxValue.permanentAddressValue);
 
     }
+
+    @Tag("smoke")
+    @Test
+    void checkSetValueFromFields() {
+        textBoxPage
+                .openTextBox()
+                .checkFieldsTestBox()
+                .setFullName(textBoxValue.fullNameValue)
+                .setEmail(textBoxValue.emailValue)
+                .setCurrentAddress(textBoxValue.currentAddressValue)
+                .setPermanentAddress(textBoxValue.permanentAddressValue);
+    }
+
+    @Tag("smoke")
+    @Test
+    void checkFieldsTestBox() {
+        textBoxPage.openTextBox().checkFieldsTestBox();
+    }
+
+
 }

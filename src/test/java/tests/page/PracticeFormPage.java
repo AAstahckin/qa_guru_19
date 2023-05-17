@@ -60,7 +60,7 @@ public class PracticeFormPage {
         return this;
     }
 
-    @Step("Проверяем что все поля присутствуют")
+    @Step("Проверяем что все поля на форме присутствуют")
     public PracticeFormPage checkFieldsNames() {
         fieldName.shouldHave(text(FIELD_NAME.getName()));
         fieldEmail.shouldHave(text(FIELD_EMAIL.getName()));

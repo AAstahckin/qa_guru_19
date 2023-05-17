@@ -53,8 +53,14 @@ test {
     useJUnitPlatform()
 }
 
-task simple_test(type: Test) {
+task regression_test(type: Test) {
     useJUnitPlatform{
-        includeTags("simple")
+        includeTags("regression")
+    }
+}
+
+task smoke_test(type: Test) {
+    useJUnitPlatform{
+        includeTags("smoke")
     }
 }

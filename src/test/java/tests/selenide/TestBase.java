@@ -8,20 +8,22 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.remote.DesiredCapabilities;
-
 import java.util.Map;
-
-import static tests.variables.DemoqaUrls.BAE_URL;
 
 public class TestBase {
 
     @BeforeAll
     static void beforeAll() {
-        SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
-        Configuration.baseUrl = BAE_URL.getUrl();
-        Configuration.browserSize = "1920x1080";
+        Configuration.baseUrl = System.getProperty("base_url", "https://demoqa.com");
+        String[] browser = System.getProperty("browser", "chrome:100.0").split(":");
+        Configuration.browser = browser[0];
+        Configuration.browserVersion = browser[1];
+        Configuration.browserSize = System.getProperty("browser_size", "1920x1080");
         Configuration.pageLoadStrategy = "eager";
-        Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub";
+        String selenoidUrl = System.getProperty("selenoid_url");
+        String selenoidLoginPassword = System.getProperty("selenoid_login_password");
+        selenoidUrl = selenoidUrl.replaceAll("https://", "");
+        Configuration.remote = "https://" + selenoidLoginPassword + "@" + selenoidUrl;
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("selenoid:options", Map.<String, Object>of(

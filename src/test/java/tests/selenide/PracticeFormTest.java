@@ -6,16 +6,15 @@ import org.junit.jupiter.api.Test;
 import tests.data.viewmodel.RegistrationFormViewModel;
 import tests.page.PracticeFormPage;
 
-@Tag("simple")
 public class PracticeFormTest extends TestBase {
 
     PracticeFormPage practiceFormPage = new PracticeFormPage();
     RegistrationFormViewModel student = new RegistrationFormViewModel();
 
+    @Tag("regression")
     @Test
-    @DisplayName("Успешное заполнение формы")
+    @DisplayName("Успешное заполнение формы automation-practice-form")
     void randomValuesPracticeFormTest() {
-
         practiceFormPage
                 .openPracticeForm()
                 .checkFieldsNames()
@@ -36,6 +35,35 @@ public class PracticeFormTest extends TestBase {
                 .verifyResults(student)
                 .clickCloseSubmit();
 
+    }
+
+    @Tag("smoke")
+    @Test
+    @DisplayName("Проверка отображения полей и формы")
+    void checkFieldsPracticeForm() {
+        practiceFormPage.openPracticeForm().checkFieldsNames();
+    }
+
+    @Tag("smoke")
+    @Test
+    @DisplayName("Проверка параметров")
+    void checkParams() {
+        practiceFormPage
+                .openPracticeForm()
+                .checkFieldsNames()
+                .setFirstName(student.firstNameValue)
+                .setLastName(student.lastNameValue)
+                .setUserEmail(student.emailValue)
+                .setGender(student.genderValue)
+                .setMobileNumber(student.phoneNumberValue)
+                .setSubjects(student.subjectsValue)
+                .setDateBirth(student.birthMonthValue, student.birthYearValue, student.birthDayValue)
+                .setHobbies(student.hobbiesValue)
+                .setAddress(student.currentAddressValue)
+                .uploadFile(student.pictureValue)
+                .setState(student.stateValue)
+                .setCity(student.cityValue)
+                .clickSubmit();
     }
 
 }
