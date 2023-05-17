@@ -20,11 +20,7 @@ public class TestBase {
         Configuration.browserVersion = browser[1];
         Configuration.browserSize = System.getProperty("browser_size", "1920x1080");
         Configuration.pageLoadStrategy = "eager";
-        String selenoidUrl = System.getProperty("selenoid_url");
-        String selenoidLogin = System.getProperty("selenoid_login");
-        String selenoidPassword = System.getProperty("selenoid_password");
-        selenoidUrl = selenoidUrl.replaceAll("https://", "");
-        Configuration.remote = "https://" + selenoidLogin + selenoidPassword + "@" + selenoidUrl;
+        Configuration.remote = System.getProperty("selenoid_url");
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("selenoid:options", Map.<String, Object>of(
