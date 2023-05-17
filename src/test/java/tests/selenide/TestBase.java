@@ -23,6 +23,7 @@ public class TestBase {
         String selenoidUrl = System.getProperty("selenoid_url");
         String selenoidLogin = System.getProperty("selenoid_login");
         String selenoidPassword = System.getProperty("selenoid_password");
+        selenoidUrl = selenoidUrl.replaceAll("https://", "");
         Configuration.remote = "https://" + selenoidLogin + selenoidPassword + "@" + selenoidUrl;
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
