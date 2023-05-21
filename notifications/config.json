@@ -1,17 +1,17 @@
 {
   "base": {
     "logo": "",
-    "project": "",
+    "project": "C19-Aleksey_Astashkin-unit13",
     "environment": "",
-    "comment": "",
-    "reportLink": "",
+    "comment": "123",
+    "reportLink": "https://jenkins.autotests.cloud/",
     "language": "ru",
-    "allureFolder": "",
+    "allureFolder": "allure-report/",
     "enableChart": true
   },
   "telegram": {
-    "token": "",
-    "chat": "",
+    "token": "5826601682:AAFu3oUIlmwQod4EerETkGZ7Ni56XMa0L4A",
+    "chat": "-953837570",
     "replyTo": ""
   }
 }
